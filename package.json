@@ -1,0 +1,28 @@
+{
+  "name": "galaxy-biojs",
+  "version": "0.0.1",
+  "description": "Continous integration of BioJS components into Galay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "biojs",
+    "galaxy"
+  ],
+  "author": "greenify",
+  "license": "GPLv3",
+  "devDependencies": {
+    "npm-registry": "^0.1.11"
+  },
+  "dependencies": {
+    "biojs-events": "0.0.4",
+    "bluebird": "^2.3.11",
+    "child-process-promise": "^1.0.0",
+    "fs-extra": "^0.12.0",
+    "fs-promise": "^0.3.0",
+    "lodash": "^2.4.1",
+    "npmi": "^0.1.1",
+    "tmp": "0.0.24"
+  }
+}
