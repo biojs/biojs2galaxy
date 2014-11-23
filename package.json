@@ -1,6 +1,6 @@
 {
   "name": "biojs-galaxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Continous integration of BioJS components into Galay",
   "main": "index.js",
   "keywords": [
