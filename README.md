@@ -39,6 +39,8 @@ xhr(url, function(err, response,text){
 });
 ```
 
+4) Check whether you have defined correct [sniper](https://github.com/biojs/biojs-sniper) settings.
+
 There are some predefined variables.
 
 * `url` URL to your data file
@@ -46,6 +48,17 @@ There are some predefined variables.
 * `galaxyDiv` an existing div for your component
 * `relativeURL` URL to your galaxy vis plugin
 
+
+How does it work
+---------------
+
+1) Query npm: "give me all package with the "galaxy-vis tag"
+2) For every package (async)
+a) Download the package and install its dependencies
+b) Browserify the package and copy the output to /static/{{name}}
+c) Copy the js and css resources defined in the biojs sniper settings to static (http links are downloaded)
+d) Copy the `galaxy.mako` into a [mako template](https://github.com/biojs/biojs-galaxy/blob/master/template/galaxy.mako)
+e) Generate a config file based on the specified data types
 
 How to run
 -------------
