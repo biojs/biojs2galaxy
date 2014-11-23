@@ -10,12 +10,12 @@
 
 var q = require('bluebird');
 var fsp = require('fs-promise');
+var path = require('path');
+var join = require('path').join;
 
 var NpmList = require("./lib/workmen.js");
 var NpmInstall = require("./lib/npmInstall.js");
 var MakoBrowserify = require('./lib/makoBrowserify');
-var path = require('path');
-var join = require('path').join;
 
 var outFolder = process.argv[2] || join(process.cwd(), "build"); // where all galaxy plugins should be installed to
 var tmpPath = ""; // will be set automatically
@@ -55,8 +55,10 @@ instance.on("done-pkg", function(pkg){
 
 // lets start the party
 
-fsp.mkdirp(outFolder)
+fsp.remove(outFolder)
 .then(function(){
+	return fsp.mkdirp(outFolder)
+}).then(function(){
 	return installer.init();
 }).then(function(){
 	tmpPath = installer.path;
