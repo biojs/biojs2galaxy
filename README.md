@@ -3,12 +3,15 @@ biojs-galaxy
 
 A fast tool to convert BioJS components into Galaxy visualization plugins.
 
+__Warning__: This tool is in a __ALPHA__ stage. Use at your own risk.
+
+It was tested so far with the [msa](https://github.com/greenify/biojs-vis-msa) component.
 
 How to add a (BioJS) Plugin
 --------------------
 
 
-1. Define your data types in the package.json
+1) Define your data types in the package.json
 
 ```
   "galaxy": {
@@ -16,7 +19,7 @@ How to add a (BioJS) Plugin
   }
 ```
 
-2. Add the `galaxy-vis` keyword to your package.json
+2) Add the `galaxy-vis` keyword to your package.json
 
 
 So your keyword list could look like this.
@@ -24,7 +27,7 @@ So your keyword list could look like this.
 keywords = ["biojs", "galaxy-vis"]
 ```
 
-3. Define a custom `galaxy.mako` (package root)
+3) Define a custom `galaxy.mako` (package root)
 
 ```
 var xhr = require("xhr");
