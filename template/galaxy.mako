@@ -37,10 +37,11 @@ ${h.stylesheet_link( root + 'plugins/visualizations/{{name}}/static/{{.}}' )}
 <script type="text/javascript">
     var config  = ${h.dumps( config )};
     var hdaJson = ${h.dumps( trans.security.encode_dict_ids( hda.to_dict() ), indent=2 )};
-    var dataType = hdaJson.dataType;
+    var dataType = hdaJson.data_type;
 
     var title   = "${title or default_title}";
-    var url = "/api/datasets/"+config.dataset_id+"?data_type=raw_data&provider=base";
+    var jsonURL = "/api/datasets/"+config.dataset_id+"?data_type=raw_data&provider=base";
+    var url = "/api/histories/"+config.dataset_id+"/contents/" +config.dataset_id+ "/display";
     var galaxyDiv = document.getElementById("galaxyContainer");
     var relativeURL = "${root}/plugins/visualizations/{{name}}";
 
