@@ -1,7 +1,7 @@
-biojs-galaxy
+biojs2galaxy
 ============
 
-[![NPM version](http://img.shields.io/npm/v/biojs-galaxy.svg)](https://www.npmjs.org/package/biojs-galaxy)
+[![NPM version](http://img.shields.io/npm/v/biojs2galaxy.svg)](https://www.npmjs.org/package/biojs2galaxy)
 
 A fast tool to convert BioJS components into Galaxy visualization plugins.
 
@@ -71,19 +71,19 @@ How to run
 Install:
 
 ```
-npm install -g biojs-galaxy
+npm install -g biojs2galaxy
 ```
 
 Run:
 
 ```
-biojs-galaxy
+biojs2galaxy
 ```
 
 Specify a specific output folder (default: `$(pwd)/build`
 
 ```
-biojs-galaxy <folder>
+biojs2galaxy <folder>
 ```
 
 (You need npm & node, of course)
@@ -92,8 +92,8 @@ How to develop
 -----------
 
 ```
-git clone https://github.com/biojs/biojs-galaxy
-cd biojs-galaxy
+git clone https://github.com/biojs/biojs2galaxy
+cd biojs2galaxy
 npm install
 node index.js
 ```
