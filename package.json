@@ -1,5 +1,5 @@
 {
-  "name": "galaxy-biojs",
+  "name": "biojs-galaxy",
   "version": "0.0.1",
   "description": "Continous integration of BioJS components into Galay",
   "main": "index.js",
@@ -10,6 +10,9 @@
     "biojs",
     "galaxy"
   ],
+  "bin":{
+    "biojs-galaxy": "./index.js"
+  },
   "author": "greenify",
   "license": "GPLv3",
   "devDependencies": {
@@ -18,11 +21,22 @@
   "dependencies": {
     "biojs-events": "0.0.4",
     "bluebird": "^2.3.11",
+    "browserify": "^6.3.2",
     "child-process-promise": "^1.0.0",
     "fs-extra": "^0.12.0",
     "fs-promise": "^0.3.0",
+    "gulp": "^3.8.10",
+    "gulp-chmod": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^1.0.1",
+    "inst": "^0.1.4",
     "lodash": "^2.4.1",
+    "mustache": "^0.8.2",
     "npmi": "^0.1.1",
-    "tmp": "0.0.24"
+    "request-promise": "^0.3.2",
+    "stream-to-promise": "^1.0.4",
+    "tmp": "0.0.24",
+    "to-slug": "0.0.0",
+    "vinyl-source-stream": "^1.0.0"
   }
 }
