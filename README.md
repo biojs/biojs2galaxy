@@ -1,6 +1,8 @@
 biojs-galaxy
 ============
 
+[![NPM version](http://img.shields.io/npm/v/biojs-galaxy.svg)](https://www.npmjs.org/package/biojs-galaxy)
+
 A fast tool to convert BioJS components into Galaxy visualization plugins.
 
 __Warning__: This tool is in a __ALPHA__ stage. Use at your own risk.
