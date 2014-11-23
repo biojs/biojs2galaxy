@@ -42,6 +42,7 @@ ${h.stylesheet_link( root + 'plugins/visualizations/{{name}}/static/{{.}}' )}
     var title   = "${title or default_title}";
     var url = "/api/datasets/"+config.dataset_id+"?data_type=raw_data&provider=base";
     var galaxyDiv = document.getElementById("galaxyContainer");
+    var relativeURL = '${root}/plugins/visualizations/{{name}}";
 
 	{{ & jsContent }}
 

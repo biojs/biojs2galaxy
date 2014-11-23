@@ -14,8 +14,10 @@ var fsp = require('fs-promise');
 var NpmList = require("./lib/workmen.js");
 var NpmInstall = require("./lib/npmInstall.js");
 var MakoBrowserify = require('./lib/makoBrowserify');
+var path = require('path');
+var join = require('path').join;
 
-var outFolder = process.argv[2] || __dirname + "/build";
+var outFolder = process.argv[2] || join(process.cwd(), "build"); // where all galaxy plugins should be installed to
 var tmpPath = ""; // will be set automatically
 
 var instance = new NpmList(['galaxy-biojs', 'galaxy-vis'], function(pkgs){
