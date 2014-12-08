@@ -1,23 +1,23 @@
 {
   "name": "biojs2galaxy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Continous integration of BioJS components into Galay",
   "main": "index.js",
   "keywords": [
     "biojs",
     "galaxy"
   ],
-  "bin":{
-    "biojs-galaxy": "./index.js"
+  "bin": {
+    "biojs2galaxy": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/biojs/biojs-galaxy"
+    "url": "git://github.com/biojs/biojs2galaxy"
   },
   "bugs": {
-    "url": "https://github.com/biojs/biojs-galaxy/issues"
+    "url": "https://github.com/biojs/biojs2galaxy/issues"
   },
-  "homepage": "https://github.com/biojs/biojs-galaxy",
+  "homepage": "https://github.com/biojs/biojs2galaxy",
   "author": "greenify",
   "license": "GPLv3",
   "dependencies": {
@@ -33,11 +33,11 @@
     "gulp-uglify": "^1.0.1",
     "inst": "^0.1.4",
     "mustache": "^0.8.2",
+    "npm-registry": "^0.1.11",
     "request-promise": "^0.3.2",
     "stream-to-promise": "^1.0.4",
     "tmp": "0.0.24",
     "to-slug": "0.0.0",
-    "vinyl-source-stream": "^1.0.0",
-    "npm-registry": "^0.1.11"
+    "vinyl-source-stream": "^1.0.0"
   }
 }
