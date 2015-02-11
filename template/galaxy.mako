@@ -40,8 +40,8 @@ ${h.stylesheet_link( root + 'plugins/visualizations/{{name}}/static/{{.}}' )}
     var dataType = hdaJson.data_type;
 
     var title   = "${title or default_title}";
-    var jsonURL = "/api/datasets/"+config.dataset_id+"?data_type=raw_data&provider=base";
-    var url = "/api/histories/"+config.dataset_id+"/contents/" +config.dataset_id+ "/display";
+    var jsonURL = "${root}api/datasets/"+config.dataset_id+"?data_type=raw_data&provider=base";
+    var url = "${root}api/histories/"+config.dataset_id+"/contents/" +config.dataset_id+ "/display";
     var galaxyDiv = document.getElementById("galaxyContainer");
     var relativeURL = "${root}/plugins/visualizations/{{name}}";
 
