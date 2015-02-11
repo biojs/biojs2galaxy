@@ -12,16 +12,35 @@ var q = require('bluebird');
 var fsp = require('fs-promise');
 var path = require('path');
 var join = require('path').join;
+var program = require('commander');
+var minilog = require('minilog');
 
 var NpmList = require("./lib/workmen.js");
 var NpmInstall = require("./lib/npmInstall.js");
 var MakoBrowserify = require('./lib/makoBrowserify');
 
-var outFolder = process.argv[2] || join(process.cwd(), "build"); // where all galaxy plugins should be installed to
+program
+  .version(require(__dirname + '/package.json').version)
+  .usage('[options] [files]')
+  .option('-v, --verbose', 'Increase verbosity', false)
+  .parse(process.argv);
+
+if(program.verbose){
+  minilog.enable();
+}
+
+// where all galaxy plugins should be installed to
+var outFolder;
+if (program.args.length > 0) {
+  outFolder = program.args[0];
+} else {
+  outFolder = join(process.cwd(), "build");
+}
+
 var tmpPath = ""; // will be set automatically
 
-var instance = new NpmList(['galaxy-biojs', 'galaxy-vis'], function(pkgs){
-	console.log("All packages have been installed. Congrats!");
+var instance = new NpmList(['galaxy-biojs', 'galaxy-vis'], function(pkgs) {
+  console.log("All packages have been installed. Congrats!");
 });
 
 var installer = new NpmInstall();
@@ -33,36 +52,39 @@ var installer = new NpmInstall();
 instance.on("single-pkg-start", installer.install.bind(installer));
 
 // all keywords haven been downloaded
-instance.on("all-pkg-start", function(pkgs){
-	console.log("#pkgs: ", pkgs.length);
+instance.on("all-pkg-start", function(pkgs) {
+  console.log("#pkgs: ", pkgs.length);
 });
 
 // package has been installed -> begin the mako toolchain
-instance.on("installed-pkg", function(pkg){
-	console.log(pkg.name + ": finished -> mako");	
-	var inst = new MakoBrowserify({path: outFolder, tmpPath: tmpPath}, pkg);
-	inst.build().then(function(){
-		instance.trigger("done-pkg", pkg);
-	},function(err){
-		console.log("Error:", err);
-	});
+instance.on("installed-pkg", function(pkg) {
+  console.log(pkg.name + ": finished -> mako");
+  var inst = new MakoBrowserify({
+    path: outFolder,
+    tmpPath: tmpPath
+  }, pkg);
+  inst.build().then(function() {
+    instance.trigger("done-pkg", pkg);
+  }, function(err) {
+    console.log("Error:", err);
+  });
 });
 
 // a single package has been finalised
-instance.on("done-pkg", function(pkg){
-	console.log(pkg.name + ": success");
+instance.on("done-pkg", function(pkg) {
+  console.log(pkg.name + ": success");
 });
 
 // lets start the party
 
 fsp.remove(outFolder)
-.then(function(){
-	return fsp.mkdirp(outFolder)
-}).then(function(){
-	return installer.init();
-}).then(function(){
-	tmpPath = installer.path;
-	instance.start();
-},function(err){
-	console.log("Error:", err);
-});
+  .then(function() {
+    return fsp.mkdirp(outFolder);
+  }).then(function() {
+    return installer.init();
+  }).then(function() {
+    tmpPath = installer.path;
+    instance.start();
+  }, function(err) {
+    console.log("Error:", err);
+  });
