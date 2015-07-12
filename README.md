@@ -69,6 +69,8 @@ e) Generate a config file based on the specified data types
 How to run
 -------------
 
+You can find a step for step example guide [here](http://www.benjamenwhite.com/2015/07/biojs2galaxy-a-step-by-step-guide/).
+
 Install:
 
 ```
