@@ -33,7 +33,7 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.0.1",
     "inst": "^0.1.4",
-    "lodash": "^3.10.0",
+    "lodash": "^4.17.15",
     "minilog": "^2.0.6",
     "mustache": "^0.8.2",
     "npm-registry": "^0.1.11",
